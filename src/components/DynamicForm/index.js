@@ -17,10 +17,10 @@ class DynamicForm extends Component {
       config = {},
     } = this.props;
 
-    const hyrdate = x => Object.assign(
-      {},
-      Object.keys(x).map(key => ({ [key]: _get(data, x[key]) })),
-    );
+    const hyrdate = x => Object.keys(x).reduce((acc, curr) => {
+      acc[curr] = _get(data, x[curr]);
+      return acc;
+    }, {});
 
     const parse = text => (typeof text === 'object' ? i18n(text.text, hyrdate(text.params)) : text);
 
@@ -101,6 +101,17 @@ class DynamicForm extends Component {
   }
 }
 
+function validateExtendedPropsUse(props) {
+  let truthyProps = 0;
+  if (props.data) {
+    truthyProps += 1;
+  }
+  if (truthyProps && truthyProps !== 5) {
+    return new Error('Must provide all props');
+  }
+  return null;
+}
+
 DynamicForm.propTypes = {
   schema: PropTypes.oneOfType([
     PropTypes.shape({ id: PropTypes.string }),
@@ -112,9 +123,7 @@ DynamicForm.propTypes = {
       PropTypes.shape({ id: PropTypes.string }),
     ]).isRequired),
   ]).isRequired,
-  data: PropTypes.oneOfType([
-    PropTypes.objectOf(PropTypes.string),
-  ]).isRequired,
+  data: validateExtendedPropsUse,
   onUpdate: PropTypes.func,
   errors: PropTypes.objectOf(PropTypes.string),
   i18n: PropTypes.func,
@@ -127,6 +136,7 @@ DynamicForm.propTypes = {
 };
 
 DynamicForm.defaultProps = {
+  data: null,
   onUpdate: () => { },
   onValidateElement: () => {},
   i18n: k => k,

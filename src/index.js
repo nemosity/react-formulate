@@ -1,4 +1,5 @@
 import DynamicForm from './components/DynamicForm';
+import StatefulDynamicForm from './components/StatefulDynamicForm';
 import Repeater from './components/Repeater';
 
 
@@ -8,6 +9,7 @@ import { joinPath } from './utils';
 
 export {
   DynamicForm,
+  StatefulDynamicForm,
   Repeater,
   validate,
   joinPath,
