@@ -32,7 +32,7 @@ class DynamicForm extends Component {
       }
 
       if (node.groupId) {
-        return createElement(Fragment, null, createElement('h4', null, node.label), processNode(node.elements, path));
+        return createElement(Fragment, null, createElement('h4', null, parse(node.label)), processNode(node.elements, path));
       }
 
       if (node.widget === 'Repeater') {
