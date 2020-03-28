@@ -1,0 +1,84 @@
+{
+  "name": "@nemosity/react-formulate",
+  "version": "0.0.1-alpha.0",
+  "description": "Extensible React library for building dynamic declarative forms",
+  "main": "lib/index.js",
+  "scripts": {
+    "start-dev": "npm link && npm run babel-watch",
+    "babel": "babel src --out-dir lib",
+    "babel-watch": "nodemon --exec npm run babel",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nemosity/react-formulate.git"
+  },
+  "keywords": [
+    "react",
+    "formulate",
+    "form",
+    "json",
+    "schema",
+    "dynamic",
+    "declarative",
+    "builder"
+  ],
+  "author": "Joe Casey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nemosity/react-formulate/issues"
+  },
+  "homepage": "https://github.com/nemosity/react-formulate#readme",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "jest": "^25.2.3",
+    "nodemon": "^2.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "airbnb/hooks"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "react/jsx-filename-extension": 0
+    }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "lib/*"
+    ],
+    "delay": "2500"
+  }
+}
