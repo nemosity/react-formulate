@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start-dev": "npm link && npm run babel-watch",
+    "build": "npm run babel",
     "babel": "babel src --out-dir lib",
     "babel-watch": "nodemon --exec npm run babel",
     "test": "echo \"Error: no test specified\" && exit 1",
