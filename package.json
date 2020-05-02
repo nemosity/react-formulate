@@ -4,7 +4,7 @@
   "description": "Extensible React library for building dynamic declarative forms",
   "main": "lib/index.js",
   "scripts": {
-    "start-dev": "npm link && npm run babel-watch",
+    "start": "npm link && npm run babel-watch",
     "build": "npm run babel",
     "babel": "babel src --out-dir lib",
     "babel-watch": "nodemon --exec npm run babel",

@@ -12,7 +12,6 @@ class DynamicForm extends Component {
       errors,
       i18n,
       onValidateElement,
-      basePath,
       widgets,
       config = {},
     } = this.props;
@@ -121,7 +120,7 @@ class DynamicForm extends Component {
         })
         : null;
     };
-    return processNode(schema, basePath);
+    return processNode(schema);
   }
 }
 
@@ -154,7 +153,6 @@ DynamicForm.propTypes = {
   errors: PropTypes.objectOf(PropTypes.string),
   i18n: PropTypes.func,
   onValidateElement: PropTypes.func,
-  basePath: PropTypes.string,
   widgets: PropTypes.objectOf(PropTypes.elementType).isRequired,
   config: PropTypes.shape({
     inlineValidation: PropTypes.bool,
@@ -167,7 +165,6 @@ DynamicForm.defaultProps = {
   onValidateElement: () => {},
   i18n: (k) => k,
   config: {},
-  basePath: null,
   errors: {},
 };
 
