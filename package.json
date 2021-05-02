@@ -2,14 +2,12 @@
   "name": "@nemosity/react-formulate",
   "version": "0.0.1-alpha.4",
   "description": "Extensible React library for building dynamic declarative forms",
-  "main": "lib/index.js",
+  "main": "lib/bundle.js",
   "scripts": {
-    "start": "npm link && npm run babel-watch",
-    "build": "npm run babel",
-    "babel": "babel src --out-dir lib",
-    "babel-watch": "nodemon --exec npm run babel",
+    "start": "webpack --mode=development --watch",
+    "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**",
+    "lint": "eslint --fix src/**/*",
     "prerelease": "npm version prerelease --preid=alpha"
   },
   "repository": {
@@ -35,52 +33,29 @@
   "files": [
     "lib"
   ],
-  "dependencies": {
-    "lodash": "^4.17.15"
-  },
   "peerDependencies": {
     "prop-types": "^15.7.0",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
     "jest": "^25.2.3",
-    "nodemon": "^2.0.2",
+    "lodash": "^4.17.21",
+    "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "airbnb/hooks"
-    ],
-    "parser": "babel-eslint",
-    "rules": {
-      "react/jsx-filename-extension": 0
-    }
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "lib/*"
-    ],
-    "delay": "2500"
+    "source-map-loader": "^2.0.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.2.3",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.6.0"
   }
 }
